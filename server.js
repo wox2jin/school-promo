@@ -11,7 +11,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  res.render('index');
+  const now = new Date();
+  const date = now.toLocaleDateString();     // YYYY-MM-DD 형식
+  const time = now.toLocaleTimeString();     // HH:MM:SS 형식
+  res.render('index', {date, time});
 });
 
 app.listen(PORT, () => {
