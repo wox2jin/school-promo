@@ -9,5 +9,12 @@
     테스트
     <h1>날짜: <%= data %></h1>
     <h1>시각: <%= time %></h1>
+    <script>
+    // 실시간 시계 업데이트
+    setInterval(() => {
+      const now = new Date();
+      document.querySelector('h1:nth-of-type(2)').textContent = '시각: ' + now.toLocaleTimeString();
+    }, 1000);
+  </script>
 </body>
 </html>
